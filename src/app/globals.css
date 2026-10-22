@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+/* ─── ComputeX Design Tokens (Architectural Blueprint & Emil Kowalski System) ─── */
+:root {
+  /* Surfaces — Architectural Obsidian, Slate, and Cool Titanium */
+  --bg-primary: #090D14;
+  --bg-secondary: #0D131F;
+  --bg-surface: #121A2A;
+  --bg-surface-elevated: #172236;
+  --bg-surface-active: #1D2C46;
+
+  /* Typography ink */
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --text-dim: #475569;
+
+  /* Restrained Engineering Accents */
+  --accent: #38BDF8;
+  --accent-hover: #0284C7;
+  --accent-muted: rgba(56, 189, 248, 0.12);
+  --accent-border: rgba(56, 189, 248, 0.28);
+  
+  --brand-cyan: #38BDF8;
+  --brand-emerald: #10B981;
+  --brand-amber: #F59E0B;
+
+  /* Architectural structural lines */
+  --border-subtle: #1E293B;
+  --border-strong: #334155;
+  --border-accent: rgba(56, 189, 248, 0.35);
+
+  /* Emil Kowalski motion tokens */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 220ms;
+  --duration-smooth: 280ms;
+}
+
+@theme inline {
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --color-surface: var(--bg-surface);
+  --color-surface-elevated: var(--bg-surface-elevated);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+  --color-accent: var(--accent);
+  --color-border: var(--border-subtle);
+  --color-border-strong: var(--border-strong);
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "SF Mono", "Cascadia Code", "Consolas", monospace;
+}
+
+/* ─── Base Reset & Smooth Scroll ─── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Themed Browser Surfaces (Paul Bakaus Craft Floor) ─── */
+::selection {
+  background: rgba(56, 189, 248, 0.25);
+  color: #FFFFFF;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+input, textarea {
+  caret-color: var(--accent);
+}
+
+/* ─── Emil Kowalski Micro-Interactions (Composite-Only) ─── */
+.btn-action {
+  transition: transform var(--duration-fast) var(--ease-out),
+              background-color var(--duration-fast) ease,
+              border-color var(--duration-fast) ease,
+              color var(--duration-fast) ease;
+  will-change: transform;
+}
+
+.btn-action:active {
+  transform: scale(0.97);
+}
+
+/* Fine-pointer hover elevation (no false-positive on touch screens) */
+@media (hover: hover) and (pointer: fine) {
+  .hover-card {
+    transition: transform var(--duration-normal) var(--ease-out),
+                border-color var(--duration-normal) ease,
+                background-color var(--duration-normal) ease;
+    will-change: transform;
+  }
+  .hover-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+  }
+
+  .hover-border {
+    transition: border-color var(--duration-fast) ease,
+                background-color var(--duration-fast) ease;
+  }
+  .hover-border:hover {
+    border-color: var(--accent);
+  }
+}
+
+/* ─── Reduced Motion Safety Guarantee ─── */
+@media (prefers-reduced-motion: reduce) {
+  .btn-action,
+  .hover-card,
+  .hover-border,
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transform: none !important;
+  }
+}
