@@ -156,3 +156,31 @@ input, textarea {
     transform: none !important;
   }
 }
+
+/* ─── Scoped Hero Spatial Topology Additions (Append-Only) ─── */
+@keyframes cx-route-pulse {
+  from {
+    stroke-dashoffset: 20;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.cx-topology-trace {
+  transition: stroke var(--duration-smooth) var(--ease-out),
+              stroke-opacity var(--duration-smooth) var(--ease-out),
+              stroke-width var(--duration-fast) var(--ease-out);
+}
+
+.cx-topology-trace-active {
+  stroke-dasharray: 5 5;
+  animation: cx-route-pulse 1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cx-topology-trace-active {
+    animation: none !important;
+    stroke-dasharray: none !important;
+  }
+}
