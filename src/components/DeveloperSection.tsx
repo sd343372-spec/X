@@ -116,7 +116,7 @@ Streaming logs to stdout. Checkpoints sync -> s3://research-nlp/runs/9042a/`;
           <div className="lg:col-span-7 rounded-xl border border-[#1E293B] bg-[#090D14] overflow-hidden shadow-2xl">
             
             {/* Header with Tab Switcher & Copy Action */}
-            <div className="flex items-center justify-between border-b border-[#1E293B] bg-[#0D131F] px-4 py-2.5">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#1E293B] bg-[#0D131F] px-4 py-2.5">
               <div className="flex items-center gap-2">
                 <button
                   type="button"
@@ -172,9 +172,9 @@ Streaming logs to stdout. Checkpoints sync -> s3://research-nlp/runs/9042a/`;
               <code>{activeTab === "yaml" ? yamlContent : cliContent}</code>
             </pre>
 
-            <div className="border-t border-[#1E293B] bg-[#0D131F] px-4 py-3 text-xs text-[#64748B] flex items-center justify-between">
+            <div className="border-t border-[#1E293B] bg-[#0D131F] px-4 py-3 text-xs text-[#64748B] flex flex-wrap items-center justify-between gap-2">
               <span>Declarative schema v0.1 · Parsed by coordination kernel</span>
-              <span className="font-mono text-[#38BDF8]">AUTOMATIC ESCROW BINDING</span>
+              <span className="font-mono text-[#38BDF8] shrink-0">AUTOMATIC ESCROW BINDING</span>
             </div>
 
           </div>

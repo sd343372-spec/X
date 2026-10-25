@@ -251,7 +251,7 @@ export function Hero() {
         ...item,
         routingStatus: "incompatible",
         statusBadge: "INCOMPATIBLE",
-        reason: item. isHostPaused
+        reason: item.isHostPaused
           ? `${item.failedReasonText} (Host also paused)`
           : item.failedReasonText,
       };
@@ -298,45 +298,36 @@ export function Hero() {
     : `Simulated workload ${activePreset.name}: dispatch held, no eligible node available. ${pausedTotalCount} node guardrails paused.`;
 
   return (
-    <section className="relative pt-24 pb-16 md:pt-32 md:pb-24 border-b border-[var(--border-subtle)] bg-[var(--bg-primary)] overflow-hidden">
+    <section className="cx-hero-lighting relative pt-28 pb-20 md:pt-36 md:pb-28 border-b border-[var(--border-subtle)] overflow-hidden">
       {/* Dedicated Screen Reader Status Region */}
       <div className="sr-only" aria-live="polite" aria-atomic="true">
         {liveAnnouncement}
       </div>
 
-      {/* Restrained Architectural Grid Background */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.14]"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, var(--border-subtle) 1px, transparent 1px),
-            linear-gradient(to bottom, var(--border-subtle) 1px, transparent 1px)
-          `,
-          backgroundSize: "72px 72px",
-          maskImage:
-            "radial-gradient(ellipse 85% 75% at 50% 45%, black 15%, transparent 80%)",
-        }}
-        aria-hidden="true"
-      />
-
-      <div className="relative mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8">
+      <div className="relative mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 overflow-x-hidden">
         {/* TIER 1: Asymmetric Editorial Header & Role Pathways */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pb-10 md:pb-12 border-b border-[var(--border-subtle)]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end pb-12 md:pb-16 border-b border-[var(--border-subtle)]">
           {/* Left 7 Columns: Editorial Headline & Concise Narrative */}
           <div className="lg:col-span-7">
-            <div className="inline-flex items-center gap-2.5 border-l-2 border-[var(--accent)] pl-3 py-0.5 text-[11px] font-mono uppercase tracking-[0.12em] text-[var(--text-secondary)] mb-5">
-              <span>Conceptual Protocol Specification · v0.1</span>
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-[var(--border-strong)] bg-[var(--bg-secondary)]/90 px-3.5 py-1 text-[11px] font-medium tracking-[0.02em] text-[var(--text-secondary)] mb-6">
+              <span
+                className="h-1.5 w-1.5 rounded-full bg-[var(--accent)]"
+                aria-hidden="true"
+              />
+              <span>Conceptual Protocol Specification</span>
+              <span className="text-[var(--text-dim)]">·</span>
+              <span className="font-mono text-[10px] text-[var(--text-primary)]">v0.1</span>
             </div>
 
             <h1
-              className="text-3xl sm:text-4xl lg:text-[2.85rem] font-semibold tracking-[-0.035em] text-[var(--text-primary)] leading-[1.08]"
+              className="text-[2.25rem] sm:text-[2.85rem] lg:text-[3.35rem] font-semibold tracking-[-0.04em] text-[var(--text-primary)] leading-[1.05]"
               style={{ textWrap: "balance" }}
             >
               Fragmented GPU capacity, coordinated into a reliable compute network.
             </h1>
 
             <p
-              className="mt-4 max-w-[60ch] text-base sm:text-[1.0625rem] text-[var(--text-secondary)] leading-relaxed"
+              className="mt-5 max-w-[58ch] text-base sm:text-[1.0625rem] text-[var(--text-secondary)] leading-[1.65] font-normal"
               style={{ textWrap: "pretty" }}
             >
               ComputeX is being designed to match developer workloads with compatible desktop GPUs shared by community providers. The coordination layer verifies hardware capabilities before routing, while providers retain local control over schedules and thermal limits.
@@ -345,11 +336,11 @@ export function Hero() {
 
           {/* Right 5 Columns: Preserved Role CTAs & Honest Project Framing */}
           <div className="lg:col-span-5 flex flex-col lg:items-end justify-end">
-            <div className="w-full sm:w-auto lg:w-full max-w-md space-y-4">
+            <div className="w-full sm:w-auto lg:w-full max-w-md space-y-5">
               <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="#for-renters"
-                  className="btn-action flex-1 inline-flex items-center justify-center rounded bg-[var(--accent)] px-5 py-3 text-sm font-semibold text-[var(--bg-primary)] hover:bg-[var(--accent-hover)] hover:text-white"
+                  className="btn-action flex-1 inline-flex items-center justify-center rounded-lg bg-[var(--text-primary)] px-5 py-3 text-sm font-semibold text-[var(--bg-primary)] shadow-sm hover:bg-[var(--accent)] hover:text-[#0A0A0C]"
                 >
                   I Need GPU Compute
                   <svg
@@ -368,14 +359,14 @@ export function Hero() {
                 </a>
                 <a
                   href="#for-providers"
-                  className="btn-action flex-1 inline-flex items-center justify-center rounded border border-[var(--border-strong)] bg-[var(--bg-secondary)]/80 px-5 py-3 text-sm font-medium text-[var(--text-primary)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                  className="btn-action flex-1 inline-flex items-center justify-center rounded-lg border border-[var(--border-strong)] bg-[var(--bg-secondary)] px-5 py-3 text-sm font-medium text-[var(--text-primary)] hover:border-[var(--text-secondary)] hover:bg-[var(--bg-surface)]"
                 >
                   I Have a GPU to Share
                 </a>
               </div>
 
-              <p className="text-xs text-[var(--text-muted)] leading-relaxed border-l border-[var(--border-strong)] pl-3">
-                <strong className="font-mono text-[11px] uppercase tracking-wider text-[var(--text-secondary)] font-normal">
+              <p className="text-xs text-[var(--text-muted)] leading-relaxed pl-3.5 border-l border-[var(--border-strong)]">
+                <strong className="font-medium text-[var(--text-secondary)]">
                   Concept Presentation:{" "}
                 </strong>
                 All workloads, nodes, quotes, and guardrail triggers below are simulated examples illustrating the proposed coordination protocol.
@@ -385,18 +376,14 @@ export function Hero() {
         </div>
 
         {/* TIER 2: Full-Width Open Spatial Routing Topology */}
-        <div className="pt-8 md:pt-10">
-          {/* Topology Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
-            <div className="flex flex-wrap items-center gap-2.5">
-              <span
-                className="h-2 w-2 rounded-full bg-[var(--accent)]"
-                aria-hidden="true"
-              />
-              <span className="text-xs font-mono uppercase tracking-[0.1em] text-[var(--text-primary)] font-medium">
+        <div className="pt-10 md:pt-12">
+          {/* Quiet Stage Header Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-8">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-xs font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
                 Interactive Protocol Simulation
               </span>
-              <span className="text-xs font-mono text-[var(--text-muted)]">
+              <span className="hidden sm:block text-xs font-mono text-[var(--text-muted)]">
                 {"// 01 Renter Demand → 02 Coordination Kernel → 03 Provider Hardware"}
               </span>
             </div>
@@ -406,26 +393,27 @@ export function Hero() {
                 <button
                   type="button"
                   onClick={resetAllGuardrails}
-                  className="btn-action text-xs font-mono text-[var(--brand-amber)] hover:underline cursor-pointer"
+                  className="btn-action text-xs font-medium text-[var(--brand-amber)] hover:underline cursor-pointer"
                 >
                   Reset All Host Guardrails ({pausedTotalCount} paused)
                 </button>
               )}
-              <span className="text-[11px] font-mono uppercase tracking-wider text-[var(--text-muted)]">
+              <span className="text-[11px] font-mono uppercase tracking-[0.08em] text-[var(--text-muted)]">
                 Zero Fabricated Telemetry
               </span>
             </div>
           </div>
 
-          {/* 3-Actor Spatial Grid: 3 cols Renter / 5 cols Central Kernel / 4 cols Provider Pool */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-start">
+          {/* 3-Actor Spatial Grid: stacks on mobile, 12-col on lg */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-7 items-start">
             {/* ACTOR 01: COMPUTE RENTER (Columns 1–3 on lg) */}
             <div className="lg:col-span-3">
-              <div className="flex items-center justify-between pb-2.5 border-b border-[var(--border-subtle)]">
-                <span className="text-xs font-mono uppercase tracking-[0.08em] text-[var(--accent)] font-medium">
-                  01 · Compute Renter
+              <div className="flex items-baseline justify-between pb-3 border-b border-[var(--border-subtle)]">
+                <span className="text-xs font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
+                  <span className="font-mono text-[var(--accent)] mr-1.5">01</span>
+                  Compute Renter
                 </span>
-                <span className="text-[11px] font-mono text-[var(--text-muted)]">
+                <span className="text-[11px] text-[var(--text-muted)]">
                   Select Workload
                 </span>
               </div>
@@ -449,39 +437,39 @@ export function Hero() {
                       aria-pressed={isSelected}
                       onClick={() => setSelectedWorkload(key)}
                       onKeyDown={(e) => handleWorkloadKeyDown(e, idx)}
-                      className={`btn-action w-full text-left py-3.5 px-3 transition-colors cursor-pointer relative ${
+                      className={`btn-action w-full text-left py-4 px-3.5 transition-colors cursor-pointer relative ${
                         isSelected
-                          ? "bg-[var(--bg-surface)]/80 text-[var(--text-primary)]"
-                          : "bg-transparent text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]/50"
+                          ? "bg-[var(--bg-surface)] text-[var(--text-primary)]"
+                          : "bg-transparent text-[var(--text-secondary)] hover:bg-[var(--bg-secondary)]/60 hover:text-[var(--text-primary)]"
                       }`}
                     >
                       {/* Active Left Indicator Bar */}
                       <span
-                        className={`absolute left-0 top-0 bottom-0 w-0.5 transition-colors ${
+                        className={`absolute left-0 top-2.5 bottom-2.5 w-[2px] rounded-full transition-colors ${
                           isSelected ? "bg-[var(--accent)]" : "bg-transparent"
                         }`}
                         aria-hidden="true"
                       />
 
                       <div className="flex items-start justify-between gap-2">
-                        <span className="text-xs sm:text-sm font-semibold leading-snug">
+                        <span className="text-xs sm:text-[13px] font-semibold tracking-[-0.01em] leading-snug">
                           {preset.name}
                         </span>
                         <span
-                          className={`mt-1 h-2 w-2 rounded-full shrink-0 ${
-                            isSelected ? "bg-[var(--accent)]" : "bg-[var(--border-strong)]"
+                          className={`mt-1.5 h-1.5 w-1.5 rounded-full shrink-0 ${
+                            isSelected ? "bg-[var(--accent)]" : "bg-[var(--text-dim)]"
                           }`}
                           aria-hidden="true"
                         />
                       </div>
 
                       <div className="mt-1.5 flex flex-wrap items-center gap-x-2 gap-y-1 text-[11px] font-mono text-[var(--text-muted)]">
-                        <span className={isSelected ? "text-[var(--accent)]" : ""}>
+                        <span className={isSelected ? "text-[var(--text-primary)]" : ""}>
                           {preset.vramReq}GB VRAM
                         </span>
-                        <span>·</span>
+                        <span className="text-[var(--text-dim)]">·</span>
                         <span>CUDA {preset.cudaLabel}</span>
-                        <span>·</span>
+                        <span className="text-[var(--text-dim)]">·</span>
                         <span>{preset.pcieLabel}</span>
                       </div>
                     </button>
@@ -490,10 +478,14 @@ export function Hero() {
               </div>
 
               {/* Active Demand Summary */}
-              <div className="mt-4 text-xs text-[var(--text-secondary)] space-y-1.5">
-                <div className="flex items-center justify-between font-mono text-[11px] text-[var(--text-muted)]">
-                  <span>SIMULATED MANIFEST</span>
-                  <span className="text-[var(--text-primary)]">{activePreset.category}</span>
+              <div className="mt-4 pt-1 text-xs text-[var(--text-secondary)] space-y-1.5">
+                <div className="flex items-center justify-between text-[11px]">
+                  <span className="font-mono uppercase tracking-wider text-[var(--text-muted)]">
+                    SIMULATED MANIFEST
+                  </span>
+                  <span className="font-medium text-[var(--text-primary)]">
+                    {activePreset.category}
+                  </span>
                 </div>
                 <p className="text-xs text-[var(--text-muted)] leading-relaxed">
                   {activePreset.summary}
@@ -503,33 +495,34 @@ export function Hero() {
 
             {/* ACTOR 02: COMPUTEX COORDINATION KERNEL (Central Focal Point — Columns 4–8 on lg) */}
             <div className="lg:col-span-5">
-              <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-[var(--border-subtle)]">
-                <span className="text-xs font-mono uppercase tracking-[0.08em] text-[var(--text-primary)] font-semibold">
-                  02 · ComputeX Coordination Kernel
+              <div className="flex items-baseline justify-between pb-3 mb-3.5 border-b border-[var(--border-subtle)]">
+                <span className="text-xs font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
+                  <span className="font-mono text-[var(--accent)] mr-1.5">02</span>
+                  ComputeX Coordination Kernel
                 </span>
-                <span className="text-[11px] font-mono text-[var(--accent)]">
+                <span className="text-[11px] font-medium text-[var(--text-secondary)]">
                   Central Router Core
                 </span>
               </div>
 
-              {/* Dominant Central Kernel Frame */}
+              {/* Dominant Central Kernel Frame (Machined Graphite Chassis) */}
               <div
-                className={`rounded-lg border-t-2 border-x border-b p-4 sm:p-5 transition-colors ${
+                className={`cx-kernel-chassis rounded-xl border p-5 transition-colors ${
                   routedNode
-                    ? "border-t-[var(--accent)] border-x-[var(--border-strong)] border-b-[var(--border-strong)] bg-[var(--bg-secondary)]"
-                    : "border-t-[var(--brand-amber)] border-x-[var(--brand-amber)]/40 border-b-[var(--brand-amber)]/40 bg-[var(--bg-secondary)]"
+                    ? "border-[var(--border-strong)]"
+                    : "border-[var(--brand-amber)]/40"
                 }`}
               >
                 {/* Kernel Status Header */}
-                <div className="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-[var(--border-subtle)]">
-                  <div className="flex items-center gap-2">
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-4 border-b border-[var(--border-subtle)]">
+                  <div className="flex items-center gap-2.5">
                     <span
-                      className={`h-2.5 w-2.5 rounded-full shrink-0 ${
-                        routedNode ? "bg-[var(--accent)]" : "bg-[var(--brand-amber)]"
+                      className={`h-2 w-2 rounded-full shrink-0 ${
+                        routedNode ? "bg-[var(--brand-emerald)]" : "bg-[var(--brand-amber)]"
                       }`}
                       aria-hidden="true"
                     />
-                    <span className="font-mono text-xs uppercase tracking-wider font-semibold text-[var(--text-primary)]">
+                    <span className="text-xs font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
                       {routedNode
                         ? "Simulated Route Matched"
                         : "Dispatch Held · No Eligible Node"}
@@ -537,21 +530,21 @@ export function Hero() {
                   </div>
 
                   <span
-                    className={`font-mono text-[11px] px-2 py-0.5 rounded border ${
+                    className={`font-mono text-[11px] px-2.5 py-0.5 rounded-md border ${
                       routedNode
-                        ? "border-[var(--accent)]/40 bg-[var(--accent-muted)] text-[var(--accent)] font-semibold"
-                        : "border-[var(--brand-amber)]/40 bg-[var(--brand-amber)]/10 text-[var(--brand-amber)] font-semibold"
+                        ? "border-[var(--accent-border)] bg-[var(--accent-muted)] text-[var(--accent)] font-medium"
+                        : "border-[var(--brand-amber)]/40 bg-[var(--brand-amber)]/10 text-[var(--brand-amber)] font-medium"
                     }`}
                   >
                     {routedNode ? `→ ${routedNode.name.toUpperCase()}` : "ZERO MATCHES"}
                   </span>
                 </div>
 
-                {/* Self-Contained Spatial Routing Diagram (Explicit Renter -> Kernel -> 4 Nodes Flow) */}
-                <div className="my-4 rounded border border-[var(--border-subtle)] bg-[var(--bg-primary)] p-3">
-                  <div className="flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-[var(--text-muted)] mb-2">
+                {/* Self-Contained Spatial Routing Viewport */}
+                <div className="cx-kernel-viewport my-4 rounded-lg border border-[var(--border-subtle)] p-3.5 overflow-hidden">
+                  <div className="flex items-center justify-between text-[10px] font-medium uppercase tracking-[0.08em] text-[var(--text-muted)] mb-2">
                     <span>Renter Spec</span>
-                    <span className="text-[var(--accent)]">Kernel Gate Filter</span>
+                    <span className="text-[var(--text-secondary)]">Kernel Gate Filter</span>
                     <span>Provider Pool</span>
                   </div>
 
@@ -562,33 +555,51 @@ export function Hero() {
                     role="img"
                     aria-label={`Routing topology diagram from ${activePreset.name} through the ComputeX Kernel to four simulated provider nodes.`}
                   >
+                    {/* Subtle Structural Zone Guides */}
+                    <line
+                      x1="78"
+                      y1="14"
+                      x2="78"
+                      y2="162"
+                      stroke="rgba(255,255,255,0.04)"
+                      strokeDasharray="2 4"
+                    />
+                    <line
+                      x1="262"
+                      y1="14"
+                      x2="262"
+                      y2="162"
+                      stroke="rgba(255,255,255,0.04)"
+                      strokeDasharray="2 4"
+                    />
+
                     {/* Inbound Renter -> Kernel Trunk */}
                     <path
-                      d="M 28 88 L 128 88"
-                      stroke="#38BDF8"
-                      strokeWidth="2"
+                      d="M 32 88 L 126 88"
+                      stroke="#36B5FF"
+                      strokeWidth="1.75"
                       className="cx-topology-trace"
                     />
                     <path
-                      d="M 28 88 L 128 88"
-                      stroke="#F8FAFC"
-                      strokeWidth="2"
-                      strokeOpacity="0.65"
+                      d="M 32 88 L 126 88"
+                      stroke="#F5F5F7"
+                      strokeWidth="1.75"
+                      strokeOpacity="0.7"
                       className="cx-topology-trace-active"
                     />
 
-                    {/* Renter Origin Node */}
+                    {/* Renter Origin Terminal */}
                     <rect
-                      x="8"
-                      y="72"
-                      width="24"
-                      height="32"
-                      rx="3"
-                      fill="#121A2A"
-                      stroke="#38BDF8"
-                      strokeWidth="1.5"
+                      x="10"
+                      y="73"
+                      width="22"
+                      height="30"
+                      rx="4"
+                      fill="#16171B"
+                      stroke="rgba(255,255,255,0.22)"
+                      strokeWidth="1.25"
                     />
-                    <circle cx="20" cy="88" r="3.5" fill="#38BDF8" />
+                    <circle cx="21" cy="88" r="3" fill="#36B5FF" />
 
                     {/* Outbound Kernel -> 4 Provider Candidate Traces */}
                     {evaluatedNodes.map(({ node, routingStatus }) => {
@@ -597,21 +608,21 @@ export function Hero() {
                       const isStandby = routingStatus === "standby";
 
                       const traceColor = isRouted
-                        ? "#38BDF8"
+                        ? "#36B5FF"
                         : isPaused
                         ? "#F59E0B"
                         : isStandby
-                        ? "#475569"
-                        : "#1E293B";
+                        ? "rgba(255,255,255,0.22)"
+                        : "rgba(255,255,255,0.07)";
 
-                      const pathD = `M 212 88 C 258 88, 262 ${node.svgY}, 318 ${node.svgY}`;
+                      const pathD = `M 214 88 C 258 88, 264 ${node.svgY}, 318 ${node.svgY}`;
 
                       return (
                         <g key={node.id}>
                           <path
                             d={pathD}
                             stroke={traceColor}
-                            strokeWidth={isRouted ? "2.25" : "1.25"}
+                            strokeWidth={isRouted ? "2" : "1.2"}
                             strokeDasharray={
                               isRouted
                                 ? undefined
@@ -619,16 +630,16 @@ export function Hero() {
                                 ? "4 3"
                                 : isStandby
                                 ? "2 3"
-                                : "1 4"
+                                : undefined
                             }
                             className="cx-topology-trace"
                           />
                           {isRouted && (
                             <path
                               d={pathD}
-                              stroke="#F8FAFC"
-                              strokeWidth="2"
-                              strokeOpacity="0.8"
+                              stroke="#F5F5F7"
+                              strokeWidth="1.75"
+                              strokeOpacity="0.85"
                               className="cx-topology-trace-active"
                             />
                           )}
@@ -643,21 +654,21 @@ export function Hero() {
                                 : isPaused
                                 ? "#F59E0B"
                                 : isStandby
-                                ? "#64748B"
-                                : "#1E293B"
+                                ? "#71717A"
+                                : "#27272A"
                             }
-                            stroke={isRouted ? "#090D14" : "none"}
+                            stroke={isRouted ? "#0A0A0C" : "none"}
                             strokeWidth="1.5"
                           />
                           <text
-                            x="333"
+                            x="334"
                             y={node.svgY + 3.5}
                             fill={
                               isRouted
-                                ? "#F8FAFC"
+                                ? "#F5F5F7"
                                 : isPaused
                                 ? "#F59E0B"
-                                : "#64748B"
+                                : "#71717A"
                             }
                             fontSize="9"
                             fontFamily="var(--font-mono)"
@@ -670,31 +681,31 @@ export function Hero() {
 
                     {/* Central Coordination Kernel Core Schematic */}
                     <rect
-                      x="128"
-                      y="44"
-                      width="84"
-                      height="88"
-                      rx="4"
-                      fill="#0D131F"
-                      stroke={routedNode ? "#38BDF8" : "#F59E0B"}
-                      strokeWidth="1.75"
+                      x="126"
+                      y="42"
+                      width="88"
+                      height="92"
+                      rx="6"
+                      fill="#141519"
+                      stroke={routedNode ? "rgba(255,255,255,0.24)" : "#F59E0B"}
+                      strokeWidth="1.25"
                     />
                     <line
-                      x1="140"
-                      y1="66"
-                      x2="200"
-                      y2="66"
-                      stroke="#1E293B"
+                      x1="138"
+                      y1="65"
+                      x2="202"
+                      y2="65"
+                      stroke="rgba(255,255,255,0.08)"
                       strokeWidth="1"
                     />
                     <text
                       x="170"
-                      y="59"
+                      y="57"
                       textAnchor="middle"
-                      fill="#F8FAFC"
+                      fill="#F5F5F7"
                       fontSize="8.5"
                       fontFamily="var(--font-mono)"
-                      letterSpacing="0.06em"
+                      letterSpacing="0.08em"
                     >
                       KERNEL
                     </text>
@@ -702,7 +713,7 @@ export function Hero() {
                       x="170"
                       y="84"
                       textAnchor="middle"
-                      fill="#94A3B8"
+                      fill="#A1A1AA"
                       fontSize="8"
                       fontFamily="var(--font-mono)"
                     >
@@ -710,7 +721,7 @@ export function Hero() {
                     </text>
                     <text
                       x="170"
-                      y="100"
+                      y="101"
                       textAnchor="middle"
                       fill={routedNode ? "#10B981" : "#F59E0B"}
                       fontSize="8.5"
@@ -720,9 +731,9 @@ export function Hero() {
                     </text>
                     <text
                       x="170"
-                      y="118"
+                      y="119"
                       textAnchor="middle"
-                      fill="#64748B"
+                      fill="#71717A"
                       fontSize="7.5"
                       fontFamily="var(--font-mono)"
                     >
@@ -732,21 +743,21 @@ export function Hero() {
                 </div>
 
                 {/* Decision Narrative (Default Sparse Explanation) */}
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {routedNode ? (
-                    <div className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                    <div className="text-xs sm:text-[13px] text-[var(--text-secondary)] leading-relaxed">
                       <span className="text-[var(--text-primary)] font-semibold">
                         Simulated Match:{" "}
                       </span>
                       Workload routed to{" "}
-                      <span className="text-[var(--accent)] font-medium">
+                      <span className="text-[var(--text-primary)] font-medium underline decoration-[var(--accent)]/60 underline-offset-4">
                         {routedNode.name} ({routedNode.gpu})
                       </span>
                       , which satisfies the {activePreset.vramReq}GB VRAM floor, CUDA{" "}
                       {activePreset.cudaLabel}, and {activePreset.pcieLabel} constraint with an active host idle window.
                     </div>
                   ) : (
-                    <div className="text-xs sm:text-sm text-[var(--text-secondary)] leading-relaxed">
+                    <div className="text-xs sm:text-[13px] text-[var(--text-secondary)] leading-relaxed">
                       <span className="text-[var(--brand-amber)] font-semibold">
                         Routing Suspended:{" "}
                       </span>
@@ -756,38 +767,38 @@ export function Hero() {
                     </div>
                   )}
 
-                  {/* 4-Constraint Summary Strip */}
-                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1 font-mono text-[11px]">
-                    <div className="rounded bg-[var(--bg-primary)] px-2.5 py-1.5 border border-[var(--border-subtle)]">
+                  {/* Unified Hairline Constraint Ledger (Replaces 4 Separate Mini-Boxes) */}
+                  <div className="grid grid-cols-2 sm:grid-cols-4 rounded-lg border border-[var(--border-subtle)] bg-[var(--bg-primary)]/70 font-mono text-[11px] overflow-hidden">
+                    <div className="px-3 py-2 border-b sm:border-b-0 border-r border-[var(--border-subtle)]">
                       <span className="block text-[9px] text-[var(--text-muted)]">
                         VRAM FLOOR
                       </span>
-                      <span className="text-[var(--text-primary)] font-medium">
+                      <span className="mt-0.5 block text-[var(--text-primary)] font-medium">
                         &gt;= {activePreset.vramReq} GB
                       </span>
                     </div>
-                    <div className="rounded bg-[var(--bg-primary)] px-2.5 py-1.5 border border-[var(--border-subtle)]">
+                    <div className="px-3 py-2 border-b sm:border-b-0 sm:border-r border-[var(--border-subtle)]">
                       <span className="block text-[9px] text-[var(--text-muted)]">
                         CUDA TARGET
                       </span>
-                      <span className="text-[var(--text-primary)] font-medium">
+                      <span className="mt-0.5 block text-[var(--text-primary)] font-medium">
                         {activePreset.cudaLabel}
                       </span>
                     </div>
-                    <div className="rounded bg-[var(--bg-primary)] px-2.5 py-1.5 border border-[var(--border-subtle)]">
+                    <div className="px-3 py-2 border-r border-[var(--border-subtle)]">
                       <span className="block text-[9px] text-[var(--text-muted)]">
                         BUS SPEC
                       </span>
-                      <span className="text-[var(--text-primary)] font-medium">
+                      <span className="mt-0.5 block text-[var(--text-primary)] font-medium">
                         {activePreset.pcieLabel}
                       </span>
                     </div>
-                    <div className="rounded bg-[var(--bg-primary)] px-2.5 py-1.5 border border-[var(--border-subtle)]">
+                    <div className="px-3 py-2">
                       <span className="block text-[9px] text-[var(--text-muted)]">
                         ELIGIBLE POOL
                       </span>
                       <span
-                        className={`font-medium ${
+                        className={`mt-0.5 block font-medium ${
                           routedNode ? "text-[var(--brand-emerald)]" : "text-[var(--brand-amber)]"
                         }`}
                       >
@@ -798,33 +809,33 @@ export function Hero() {
                 </div>
 
                 {/* Optional Verification Gate Drawer */}
-                <div className="mt-4 pt-3 border-t border-[var(--border-subtle)] flex items-center justify-between gap-2">
+                <div className="mt-4 pt-3.5 border-t border-[var(--border-subtle)] flex items-center justify-between gap-2">
                   <button
                     type="button"
                     aria-expanded={showGateDetails}
                     onClick={() => setShowGateDetails((prev) => !prev)}
-                    className="btn-action text-xs font-mono text-[var(--accent)] hover:underline cursor-pointer"
+                    className="btn-action text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] cursor-pointer"
                   >
                     {showGateDetails
                       ? "Hide protocol verification gates −"
                       : "Inspect protocol verification gates +"}
                   </button>
-                  <span className="text-[11px] font-mono text-[var(--text-muted)]">
+                  <span className="text-[10px] font-mono text-[var(--text-muted)]">
                     SPEC_V0.1
                   </span>
                 </div>
 
                 {showGateDetails && (
-                  <div className="mt-3 pt-3 border-t border-[var(--border-subtle)] space-y-2 text-xs font-mono">
+                  <div className="mt-3 pt-3 border-t border-[var(--border-subtle)] space-y-2 text-xs">
                     <div className="flex flex-wrap justify-between gap-1 text-[var(--text-secondary)]">
                       <span>Gate 1 · Hardware Capability Check:</span>
-                      <span className="text-[var(--text-primary)]">
+                      <span className="font-mono text-[var(--text-primary)]">
                         {compatibleHardwareCount} of {PROVIDER_NODES.length} nodes compatible
                       </span>
                     </div>
                     <div className="flex flex-wrap justify-between gap-1 text-[var(--text-secondary)]">
                       <span>Gate 2 · Host Sovereignty Guardrails:</span>
-                      <span className="text-[var(--text-primary)]">
+                      <span className="font-mono text-[var(--text-primary)]">
                         {pausedTotalCount > 0
                           ? `${pausedTotalCount} node(s) paused by host`
                           : "All simulated hosts idle"}
@@ -832,11 +843,11 @@ export function Hero() {
                     </div>
                     <div className="flex flex-wrap justify-between gap-1 text-[var(--text-secondary)]">
                       <span>Gate 3 · Illustrative Rate Estimate:</span>
-                      <span className="text-[var(--text-primary)]">
+                      <span className="font-mono text-[var(--text-primary)]">
                         {activePreset.simulatedQuote}
                       </span>
                     </div>
-                    <div className="text-[11px] text-[var(--text-muted)] pt-1 leading-relaxed font-sans">
+                    <div className="text-[11px] text-[var(--text-muted)] pt-1 leading-relaxed">
                       {activePreset.proposedSandbox}
                     </div>
                   </div>
@@ -846,16 +857,17 @@ export function Hero() {
 
             {/* ACTOR 03: PROVIDER HARDWARE POOL (Columns 9–12 on lg) */}
             <div className="lg:col-span-4">
-              <div className="flex items-center justify-between pb-2.5 mb-3 border-b border-[var(--border-subtle)]">
-                <span className="text-xs font-mono uppercase tracking-[0.08em] text-[var(--text-primary)] font-medium">
-                  03 · Provider Hardware
+              <div className="flex items-baseline justify-between pb-3 mb-3.5 border-b border-[var(--border-subtle)]">
+                <span className="text-xs font-semibold tracking-[-0.01em] text-[var(--text-primary)]">
+                  <span className="font-mono text-[var(--accent)] mr-1.5">03</span>
+                  Provider Hardware
                 </span>
-                <span className="text-[11px] font-mono text-[var(--text-muted)]">
+                <span className="text-[11px] text-[var(--text-muted)]">
                   Simulated Nodes (Toggle Guardrail)
                 </span>
               </div>
 
-              <div className="space-y-3">
+              <div className="space-y-2.5">
                 {evaluatedNodes.map(
                   ({
                     node,
@@ -871,14 +883,14 @@ export function Hero() {
                     return (
                       <div
                         key={node.id}
-                        className={`rounded border p-3.5 transition-colors ${
+                        className={`rounded-lg border p-3.5 transition-colors ${
                           isRouted
-                            ? "border-[var(--accent)] bg-[var(--bg-surface)]/90"
+                            ? "cx-node-routed border-[var(--border-strong)]"
                             : isHostPaused
-                            ? "border-[var(--brand-amber)]/50 bg-[var(--bg-secondary)]/85"
+                            ? "border-[var(--brand-amber)]/35 bg-[var(--bg-secondary)]/80"
                             : isIncompatible
-                            ? "border-[var(--border-subtle)] bg-[var(--bg-primary)]/90"
-                            : "border-[var(--border-subtle)] bg-[var(--bg-secondary)]/55"
+                            ? "border-[var(--border-subtle)] bg-transparent opacity-65"
+                            : "border-[var(--border-subtle)] bg-[var(--bg-secondary)]/45"
                         }`}
                       >
                         {/* Row 1: Node Identity + Distinct Eligibility/Routing Status Badge */}
@@ -891,13 +903,13 @@ export function Hero() {
                                   : isHostPaused
                                   ? "bg-[var(--brand-amber)]"
                                   : hardwareCompatible
-                                  ? "bg-[var(--accent)]/60"
+                                  ? "bg-[var(--text-secondary)]"
                                   : "bg-[var(--text-dim)]"
                               }`}
                               aria-hidden="true"
                             />
                             <span
-                              className={`text-sm font-semibold ${
+                              className={`text-sm font-semibold tracking-[-0.01em] ${
                                 isIncompatible && !isHostPaused
                                   ? "text-[var(--text-secondary)]"
                                   : "text-[var(--text-primary)]"
@@ -911,7 +923,6 @@ export function Hero() {
                           </div>
 
                           <div className="flex flex-wrap items-center gap-1.5">
-                            {/* If a node is BOTH hardware-incompatible AND host-paused, show both badges distinctly */}
                             {isIncompatible && isHostPaused && (
                               <span className="font-mono text-[10px] px-2 py-0.5 rounded border border-[var(--brand-amber)]/40 bg-[var(--brand-amber)]/10 text-[var(--brand-amber)]">
                                 HOST PAUSED
@@ -920,12 +931,12 @@ export function Hero() {
                             <span
                               className={`font-mono text-[10px] px-2 py-0.5 rounded border ${
                                 isRouted
-                                  ? "border-[var(--brand-emerald)]/40 bg-[var(--brand-emerald)]/15 text-[var(--brand-emerald)] font-semibold"
+                                  ? "border-[var(--brand-emerald)]/40 bg-[var(--brand-emerald)]/12 text-[var(--brand-emerald)] font-medium"
                                   : routingStatus === "paused"
-                                  ? "border-[var(--brand-amber)]/40 bg-[var(--brand-amber)]/15 text-[var(--brand-amber)] font-semibold"
+                                  ? "border-[var(--brand-amber)]/40 bg-[var(--brand-amber)]/12 text-[var(--brand-amber)] font-medium"
                                   : isIncompatible
-                                  ? "border-[var(--border-subtle)] bg-[var(--bg-secondary)] text-[var(--text-muted)]"
-                                  : "border-[var(--border-strong)] bg-[var(--bg-primary)] text-[var(--text-secondary)]"
+                                  ? "border-[var(--border-subtle)] text-[var(--text-muted)]"
+                                  : "border-[var(--border-strong)] text-[var(--text-secondary)]"
                               }`}
                             >
                               {statusBadge}
@@ -941,11 +952,11 @@ export function Hero() {
                           <span className="text-[var(--text-dim)]">·</span>
                           <span>{node.pcieLabel}</span>
                           <span className="text-[var(--text-dim)]">·</span>
-                          <span className="text-[var(--text-muted)]">{node.tier}</span>
+                          <span className="font-sans text-[var(--text-muted)]">{node.tier}</span>
                         </div>
 
                         {/* Row 3: Evaluation Reason + Independent Host Guardrail Toggle */}
-                        <div className="mt-2.5 pt-2.5 border-t border-[var(--border-subtle)] flex flex-wrap items-center justify-between gap-2">
+                        <div className="mt-2.5 pt-2.5 border-t border-[var(--border-subtle)] flex flex-col sm:flex-row sm:flex-wrap sm:items-center justify-between gap-2">
                           <span className="text-xs text-[var(--text-muted)] leading-snug">
                             {reason}
                           </span>
@@ -954,10 +965,10 @@ export function Hero() {
                             type="button"
                             aria-pressed={isHostPaused}
                             onClick={() => toggleNodeGuardrail(node.id)}
-                            className={`btn-action px-2.5 py-1 rounded border text-[11px] font-mono cursor-pointer shrink-0 ${
+                            className={`btn-action px-2.5 py-1 rounded-md border text-[11px] font-medium cursor-pointer shrink-0 ${
                               isHostPaused
-                                ? "border-[var(--brand-amber)] bg-[var(--brand-amber)]/15 text-[var(--brand-amber)] font-medium"
-                                : "border-[var(--border-strong)] bg-[var(--bg-primary)] text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                                ? "border-[var(--brand-amber)]/60 bg-[var(--brand-amber)]/15 text-[var(--brand-amber)]"
+                                : "border-[var(--border-strong)] bg-[var(--bg-primary)] text-[var(--text-secondary)] hover:border-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                             }`}
                           >
                             {isHostPaused

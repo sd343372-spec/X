@@ -113,11 +113,11 @@ export function UseCases() {
                       : "border-[#1E293B] bg-[#0E1420] hover:border-[#334155] text-[#94A3B8]"
                   }`}
                 >
-                  <div className="flex items-center justify-between mb-1">
-                    <span className={`text-sm font-semibold ${isSelected ? "text-[#F8FAFC]" : "text-[#94A3B8]"}`}>
+                  <div className="flex flex-wrap items-start justify-between gap-2 mb-1">
+                    <span className={`text-sm font-semibold leading-snug ${isSelected ? "text-[#F8FAFC]" : "text-[#94A3B8]"}`}>
                       {profile.domain}
                     </span>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded border border-[#334155] text-[#64748B]">
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded border border-[#334155] text-[#64748B] shrink-0 whitespace-nowrap">
                       {profile.badge}
                     </span>
                   </div>
@@ -206,7 +206,7 @@ export function UseCases() {
 
             </div>
 
-            <div className="mt-6 pt-4 border-t border-[#1E293B] flex items-center justify-between text-[11px] text-[#64748B] font-mono">
+            <div className="mt-6 pt-4 border-t border-[#1E293B] flex flex-wrap items-center justify-between gap-2 text-[11px] text-[#64748B] font-mono">
               <span>UNPRIVILEGED GUEST CONTAINER</span>
               <span className="text-[#38BDF8]">SECURE SCRUB UPON EXIT</span>
             </div>

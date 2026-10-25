@@ -55,17 +55,17 @@ export function ProviderSection() {
             </div>
 
             {/* Hardware Telemetry Status Strip */}
-            <div className="grid grid-cols-3 divide-x divide-[#1E293B] border-b border-[#1E293B] bg-[#090D14]/80 text-center py-2.5 text-[11px] font-mono">
+            <div className="grid grid-cols-3 divide-x divide-[#1E293B] border-b border-[#1E293B] bg-[#090D14]/80 text-center py-2.5 text-[10px] font-mono">
               <div>
-                <span className="text-[#64748B] block text-[10px]">CURRENT TEMP</span>
+                <span className="text-[#64748B] block text-[9px]">CURRENT TEMP</span>
                 <span className="text-[#10B981] font-semibold">41°C (Ambient)</span>
               </div>
               <div>
-                <span className="text-[#64748B] block text-[10px]">FAN PROFILE</span>
+                <span className="text-[#64748B] block text-[9px]">FAN PROFILE</span>
                 <span className="text-[#38BDF8] font-semibold">0 RPM (Silent)</span>
               </div>
               <div>
-                <span className="text-[#64748B] block text-[10px]">HOST STATE</span>
+                <span className="text-[#64748B] block text-[9px]">HOST STATE</span>
                 <span className="text-[#F8FAFC] font-semibold">Idle Sovereign</span>
               </div>
             </div>
@@ -87,9 +87,9 @@ export function ProviderSection() {
                   className="w-full accent-[#10B981] bg-[#090D14] h-2 rounded cursor-pointer"
                   aria-label="Maximum thermal threshold"
                 />
-                <div className="mt-2 flex items-center justify-between text-[11px]">
+                <div className="mt-2 flex flex-wrap items-start justify-between gap-x-2 gap-y-1 text-[11px]">
                   <span className={`font-mono ${thermalProfile.color}`}>{thermalProfile.label}</span>
-                  <span className="text-[#64748B]">Range: 60°C – 85°C</span>
+                  <span className="text-[#64748B] shrink-0">Range: 60°C – 85°C</span>
                 </div>
                 <p className="mt-2 text-[11px] text-[#94A3B8] leading-normal">
                   If GPU temperature exceeds {thermalLimit}°C, the agent instantly throttles or halts guest jobs to protect hardware longevity.
@@ -187,9 +187,9 @@ export function ProviderSection() {
 
             </div>
 
-            <div className="border-t border-[#1E293B] bg-[#090D14] px-4 py-3 text-xs text-[#64748B] flex items-center justify-between">
+            <div className="border-t border-[#1E293B] bg-[#090D14] px-4 py-3 text-xs text-[#64748B] flex flex-wrap items-center justify-between gap-2">
               <span>Host sovereignty is hardcoded into the local daemon.</span>
-              <span className="font-mono text-[#10B981]">LOCAL FIRMWARE ENFORCEMENT</span>
+              <span className="font-mono text-[#10B981] shrink-0">LOCAL FIRMWARE ENFORCEMENT</span>
             </div>
           </div>
 

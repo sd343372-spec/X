@@ -191,7 +191,7 @@ export function HowItWorks() {
                 {stage.renterAction.description}
               </p>
               {stage.renterAction.codeSnippet && (
-                <div className="mt-3 rounded border border-[#1E293B] bg-[#121A2A] px-3 py-2 text-xs font-mono text-[#38BDF8]">
+                <div className="mt-3 rounded border border-[#1E293B] bg-[#121A2A] px-3 py-2 text-xs font-mono text-[#38BDF8] overflow-x-auto">
                   $ {stage.renterAction.codeSnippet}
                 </div>
               )}
@@ -212,7 +212,7 @@ export function HowItWorks() {
                 {stage.providerAction.description}
               </p>
               {stage.providerAction.codeSnippet && (
-                <div className="mt-3 rounded border border-[#1E293B] bg-[#121A2A] px-3 py-2 text-xs font-mono text-[#10B981]">
+                <div className="mt-3 rounded border border-[#1E293B] bg-[#121A2A] px-3 py-2 text-xs font-mono text-[#10B981] overflow-x-auto">
                   $ {stage.providerAction.codeSnippet}
                 </div>
               )}
